@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Teridion Latency map</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" media="all" href="css/styles.css"/>
+    <script src="js/lib.min.js"></script>
+    <script src="js/lib.jquery.min.js"></script>
+    <script src="js/lib.moment.min.js"></script>
+    <script src="js/utils.js?v=1"></script>
+    <script src="js/init.js?v=1"></script>
+</head>
+<body>
+<div id="loaderContainer" class="loaderContainer">
+    <div id="loader" class="loader"></div>
+</div>
+<div id="containerWrap">
+    <div id="container" class="container"></div>
+    <div id="title">Latency map <span id="dateTitle"></span></div>
+    <table id="legendTable" cellpadding="0" cellspacing="0">
+        <tr><td style="background-color: #0f0; width: 8px;">&nbsp;</td><td> Low</td><td>less than 45ms</td></tr>
+        <tr><td style="background-color: #ff0;">&nbsp;</td><td> Normal</td><td>45ms - 90ms</td></tr>
+        <tr><td style="background-color: #f60;">&nbsp;</td><td> High</td><td>90ms - 180ms</td></tr>
+        <tr><td style="background-color: #f00;">&nbsp;</td><td> Very high</td><td>More than 180ms</td></tr>
+        <tr>
+            <td colspan="2" style="border: 0;"><a href="/">Logout...</a></td>
+        </tr>
+    </table>
+</div>
+
+<div id="controls" class="show" style="display: none;">
+    <div>
+        <a href="#" onClick="toggleRotation();" class="button rosy">Rotation</button></a>
+        <a href="#" onClick="zoomCamera(-1);" class="button blue">Zoom Out</button></a>
+        <a href="#" onClick="zoomCamera(+1);" class="button blue">Zoom In</button></a>
+        <a href="#" onClick="addNewData();" class="button green">Add</button></a>
+        <a href="#" onClick="remAllData();" class="button red">Remove All</button></a>
+        <a href="#" onClick="resetView();" class="button pink">Reset</button></a>
+    </div>
+</div>
+</body>
+</html>

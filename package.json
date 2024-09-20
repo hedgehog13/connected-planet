@@ -1,0 +1,22 @@
+{
+  "name": "connected_planet",
+  "version": "1.0.0",
+  "description": "3D globe visualization with data centers and connections",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "axios": "^0.21.1",
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "three": "^0.128.0",
+    "tween.js": "^16.6.0"
+  }
+}

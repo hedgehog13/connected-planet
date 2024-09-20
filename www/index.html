@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teridion Latency map</title>
+    <style>
+        html {
+            height: 100%;
+            overflow: hidden;
+        }
+        body {
+            background-color: #000;
+            background-image: url('img/login-bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: bottom center;
+            height: 100%;
+        }
+        input {
+            border: solid 4px #999;
+            padding: 5px;
+            margin: 10px;
+            font-size: 18px;
+            width: 100%;
+        }
+        button {
+            position: relative;
+            left: 10px;
+            margin: 10px;
+            padding: 5px;
+            font-size: 18px;
+            width: 100%;
+            border: 0;
+            border-radius: 10px;
+            background: rgba(226,226,226,1);
+            background: -moz-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(226,226,226,1)), color-stop(50%, rgba(219,219,219,1)), color-stop(51%, rgba(209,209,209,1)), color-stop(100%, rgba(254,254,254,1)));
+            background: -webkit-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+            background: -o-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+            background: -ms-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+            background: linear-gradient(to bottom, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%);
+        }
+        .fieldTitle {
+            color: #fff;
+            background-color: #999;
+            padding: 5px;
+            margin: 10px;
+            border: solid 4px #999;
+            font-family: Arial;
+        }
+    </style>
+    <script src="js/lib.jquery.min.js"></script>
+    <script type="text/javascript">
+        function doLogin() {
+            var user = $('#user_txt').val();
+            var pass = $('#pass_txt').val();
+
+            $.ajax({
+                method: "POST",
+                url: "/login",
+                data: {user: user, password: pass}
+            })
+            .done(function (data) {
+                if (data.error) {
+                    console.log(data.error);
+                } else {
+                    window.location = 'map.html?token=' + data.token;
+                }
+            });
+
+//            $.post('/login', {"user": user, "password": pass}).done(function(data) {
+//                console.log(data);
+//            });
+
+        }
+    </script>
+</head>
+<body>
+<div style="width: 400px; margin: auto; margin-top: 15vh;">
+        <object id="login-logo" data="img/logo.svg" type="image/svg+xml" style="display: inline !important;" class="transition visible"></object>
+    <br/>
+    <br/>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td><div class="fieldTitle">Username</div></td>
+            <td><input id="user_txt" type="text" value=""/></td>
+        </tr>
+        <tr>
+            <td><div class="fieldTitle">Password</div></td>
+            <td><input id="pass_txt" type="password" value=""/></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <button onclick="doLogin()">Login</button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+</html>
